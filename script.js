@@ -2,13 +2,7 @@ console.log("script loaded");
 function playSound(e) {
   // Don't forget we need quotes around the attribute value
   let code;
-  if (e.keyCode) {
-    // it was a keypress, get the keycode as usual
-    code = e.keyCode;
-  } else {
-    // it was a click.  Read the keycode from the div that was clicked
-    code = this.dataset.key;
-  }
+  e.keyCode ? code = e.keyCode : code=this.dataset.key;
   const audio = document.querySelector(`audio[data-key="${code}"]`);
   const key = document.querySelector(`.key[data-key="${code}"]`);
   console.log(audio);
