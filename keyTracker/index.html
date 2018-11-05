@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+
+<body>
+    <script>
+        const pressed = [];
+        const code = 'aaron';
+        window.addEventListener('keyup', (e) => {
+            console.log(e);
+            pressed.push(e.key)
+            pressed.splice(-code.length - 1, pressed.length - code.length);
+            if (pressed.join('').includes(code)) {
+                alert('You entered the code')
+            }
+        }
+        )
+        window.addEventListener("keydown", function (zEvent) {
+            if (zEvent.code==="AltLeft") {
+                // DO YOUR STUFF HERE
+                alert('Are you trying opening to open console?')
+            }
+        });
+
+    </script>
+</body>
+
+</html>
