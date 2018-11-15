@@ -1,6 +1,14 @@
 const addItems = document.querySelector(".add-items");
 const itemsList = document.querySelector(".plates");
 const items = JSON.parse(localStorage.getItem("items")) || [];
+const clear = document.querySelector("#clear")
+clear.addEventListener('click',clearMemory);
+function clearMemory(){
+  console.log("hi")
+localStorage.removeItem("items")
+itemsList.innerHTML='';
+}
+
 function addItem(e) {
   e.preventDefault();
 
@@ -12,7 +20,7 @@ function addItem(e) {
   items.push(item);
   populateList(items, itemsList);
   console.log(items);
-  localStorage.setItem("item", JSON.stringify(items));
+  localStorage.setItem("items", JSON.stringify(items));
   this.reset();
 }
 function populateList(plates = [], platesList) {
@@ -30,9 +38,16 @@ function populateList(plates = [], platesList) {
     .join("");
 }
 function toggleDone(e) {
-  console.log(e.target);
+  if (e.target.matches("input")) return;
+  const el =e.target;
+  const index= el.dataset.index
+  items[index].done= !items[index.done]
+  localStorage.setItem("items", JSON.stringify(items));
+  populateList(items, itemsList);
 }
 addItems.addEventListener("submit", addItem);
 // delegate listen for clicks through the parent
-addItems.addEventListener("click", toggleDone);
+itemsList.addEventListener("click", toggleDone);
+
 populateList(items, itemsList);
+  
