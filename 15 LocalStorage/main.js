@@ -1,8 +1,7 @@
 const addItems = document.querySelector(".add-items");
 const itemsList = document.querySelector(".plates");
 const items = JSON.parse(localStorage.getItem("items")) || [];
-const clear = document.querySelector("#clear")
-clear.addEventListener('click',clearMemory);
+
 function clearMemory(){
   console.log("hi")
 localStorage.removeItem("items")
