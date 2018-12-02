@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <form onsubmit="save_data()">
+      <div>
+        <label for="city">City:</label>
+        <input type="text" id="city" />
+      </div>
+      <div>
+        <label for="date">Start Date:</label>
+        <input type="date" id="date" />
+      </div>
+      <div>
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" />
+     </div>
+      <div>
+        <label for="interest">Interest:</label>
+        <input type="text" id="interest" ></input>
+      </div>
+      <input type="submit" value="submit">    
+    </form>
+  </body>
+  <script>
+    function save_data(){
+    var city = document.getElementById("city");
+    var date = document.getElementById("date");
+    var endDate = document.getElementById("endDate");
+    var interest = document.getElementById("interest");
+    var travelInfo={
+        "city":city.value,
+        "date":date.value,
+        "endDate":endDate.value,
+        "interest":interest.value
+        };
+        console.log("saving")
+        localStorage.setItem("travelInfo", JSON.stringify(travelInfo));
+    }
+    
+  </script>
+</html>
