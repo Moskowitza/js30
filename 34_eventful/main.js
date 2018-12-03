@@ -20,14 +20,11 @@ fetch(eventfulUrl)
   .then(res => res.json())
   .then(res => {
     // console.log(res.events[event]);
-    res.events.event.map(event => {
-      const eventObj = {
-        title: event.title,
-        description: event.description
-      };
-      const responseArray = [...eventObj];
-      console.log(responseArray);
-    });
+    const responseArray = Array.from(res.events.event, event => event.title);
+
+    console.log(responseArray);
+
+    // Object.keys(responseArray).forEach(event => console.log(event.title));
 
     // console.log(responseArray);
   })
