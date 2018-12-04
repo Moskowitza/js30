@@ -16,6 +16,7 @@
       <h1>Welcome to Trips To Plan</h1>
     </header>
     <main>
+        <div id="map"></div>
     <div id="form">
       <form onsubmit="save_data()">
           <div>
@@ -40,10 +41,9 @@
     <div id="results">
       <h2>results</h2>
     </div>
-    <div id="map"></div>
+  
   </main>
   <footer id="footer">&copy;Aaron Moskowitz</footer>
-  </body>
   <script>
     function save_data(){
     var city = document.getElementById("city");
@@ -60,5 +60,20 @@
         localStorage.setItem("travelInfo", JSON.stringify(travelInfo));
     }
   </script>
+  <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8
+        });
+      }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD_2ijFPoTpfsqiNe1kSJrZvvApSKyAHw&callback=initMap"
+      async
+      defer
+    ></script>
   <script src="main.js"></script>
+</body>
 </html>
