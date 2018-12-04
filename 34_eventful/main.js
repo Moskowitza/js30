@@ -16,60 +16,29 @@ const eventfulUrl = `${corsApiUrl}${eventfulAPI}?app_key=${apiKey}&keywords=${
 }&date=${travelData.date}to${travelData.endDate}`;
 
 console.log(eventfulUrl);
-fetch(eventfulUrl)
+
+const eventResponse = fetch(eventfulUrl);
+eventResponse
   .then(res => res.json())
   .then(res => {
-    // console.log(res.events[event]);
-    const responseArray = Array.from(res.events.event, event => event.title);
-
-    console.log(responseArray);
-
-    // Object.keys(responseArray).forEach(event => console.log(event.title));
-
-    // console.log(responseArray);
+    console.log(res.events);
+    const responseArray = Array.from(res.events.event, event => ({
+      title: event.title,
+      description: event.description,
+      lat: event.latitude,
+      lng: event.longitude
+    }));
+    console.table(responseArray);
+    const markup = `
+    ${responseArray.map(
+      event => `
+        <div class="event">
+          <h2>${event.title}</h2>
+          <p>${event.descripiton}</p>
+        </div>`
+    )}
+    `;
+    const resultDiv = document.getElementById('results');
+    resultDiv.innerHTML = markup;
   })
-  .catch(err => console.error(`OH NO!${err}`));
-// if (res.events.event) {
-// Object.keys(res.events.event).forEach(event => console.log(event.title));
-// }
-
-// console.log(events);
-// Object.keys(events).forEach(event => {
-//   if (event.title) {
-//     console.log(event.title);
-//   }
-// });
-
-//   const requestUrl = corsApiUrl + eventfulUrl;
-//   $.ajax({
-//     url: requestUrl
-//   })
-//     .error(error => {
-//       // we'll have to do our own error handling
-//       response = JSON.parse(error.responseText);
-//       if (response.events) {
-//         const parsedResults = response.events.event.map(event => ({
-//           title: event.title,
-//           city: event.city_name,
-//           state: event.region_name,
-//           description: event.description,
-//           venue: event.venue_name,
-//           venueAddress: event.venue_address,
-//           venueUrl: event.venue_url,
-//           lat: event.latitude,
-//           lon: event.longitude,
-//           startTime: event.start_time
-//         }));
-//         // add the results to our interes object
-//         interest.events = parsedResults;
-//         // and add our interest object to our vacation object
-//         vacation.dateWindows[dateIndex].interests.push(interest);
-//       }
-//       if (interests.length !== 0) {
-//         appendInterests(vacation, dateIndex, callback);
-//       } else {
-//         callback();
-//       }
-//     })
-//     .done(data => {});
-// }
+  .catch(err => console.error(err));
