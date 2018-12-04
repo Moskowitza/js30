@@ -1,0 +1,44 @@
+body {
+  display: grid;
+  grid-template-columns: 150px auto 150px;
+  grid-template-rows: repeat(4, 100px);
+  grid-gap: 1em;
+  grid-template:
+    'header     header  header'
+    'form       map     map'
+    'results    map     map'
+    'footer     footer  footer';
+}
+#header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  background: lightcoral;
+  grid-area: header;
+  height: auto;
+}
+.media {
+  min-width: 0;
+  margin: 5px;
+}
+img {
+  width: 450px;
+  max-width: 100%;
+  max-height: 450px;
+}
+
+#form {
+  grid-area: form;
+}
+#results {
+  grid-area: results;
+}
+#map {
+  grid-area: map;
+}
+#footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-area: footer;
+}

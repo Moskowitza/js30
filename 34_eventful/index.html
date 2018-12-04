@@ -6,29 +6,43 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+   
   </head>
   <body>
-    <form onsubmit="save_data()">
-      <div>
-        <label for="city">City:</label>
-        <input type="text" id="city" />
+    <header id="header">
+      <div class="media">
+          <img id="logo" src="ttplogo.png">
       </div>
-      <div>
-        <label for="date">Start Date:</label>
-        <input type="date" id="date" />
+      <h1>Welcome to Trips To Plan</h1>
+    </header>
+    <main>
+    <div id="form">
+      <form onsubmit="save_data()">
+          <div>
+            <label for="city">City:</label>
+            <input type="text" id="city" />
+          </div>
+          <div>
+            <label for="date">Start Date:</label>
+            <input type="date" id="date" />
+          </div>
+          <div>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" />
+          </div>
+          <div>
+            <label for="interest">Interest:</label>
+            <input type="text" id="interest" ></input>
+          </div>
+          <input type="submit" value="submit">    
+        </form>
       </div>
-      <div>
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" />
-     </div>
-      <div>
-        <label for="interest">Interest:</label>
-        <input type="text" id="interest" ></input>
-      </div>
-      <input type="submit" value="submit">    
-    </form>
-    <div id="results"></div>
+    <div id="results">
+      <h2>results</h2>
+    </div>
+    <div id="map"></div>
+  </main>
+  <footer id="footer">&copy;Aaron Moskowitz</footer>
   </body>
   <script>
     function save_data(){
@@ -45,6 +59,6 @@
         console.log("saving")
         localStorage.setItem("travelInfo", JSON.stringify(travelInfo));
     }
-    
   </script>
+  <script src="main.js"></script>
 </html>

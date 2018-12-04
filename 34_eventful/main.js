@@ -30,13 +30,15 @@ eventResponse
     }));
     console.table(responseArray);
     const markup = `
-    ${responseArray.map(
-      event => `
+    ${responseArray
+      .map(
+        event => `
         <div class="event">
           <h2>${event.title}</h2>
           <p>${event.descripiton}</p>
         </div>`
-    )}
+      )
+      .join('')}
     `;
     const resultDiv = document.getElementById('results');
     resultDiv.innerHTML = markup;
