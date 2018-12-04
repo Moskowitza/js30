@@ -1,3 +1,26 @@
+function save_data() {
+  const city = document.getElementById('city');
+  const date = document.getElementById('date');
+  const endDate = document.getElementById('endDate');
+  const interest = document.getElementById('interest');
+  const travelInfo = {
+    city: city.value,
+    date: date.value,
+    endDate: endDate.value,
+    interest: interest.value
+  };
+  console.log('saving');
+  localStorage.setItem('travelInfo', JSON.stringify(travelInfo));
+}
+
+let map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8
+  });
+}
+
 // api key xmnsRKbacpmsh6ZB83cvLNMQc4LTp1Znb3fjsngAa5M9Bt400S
 console.log('connected to eventful.js');
 const corsApiUrl = 'https://cors-anywhere.herokuapp.com/';
@@ -34,7 +57,7 @@ eventResponse
       .map(
         event => `
         <div class="event">
-          <h2>${event.title}</h2>
+          <p>${event.title}</p>
           <p>${event.descripiton}</p>
         </div>`
       )
