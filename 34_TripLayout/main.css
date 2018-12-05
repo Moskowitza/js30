@@ -1,0 +1,26 @@
+body {
+  box-sizing: border-box;
+  font-family: 'Text Me One', sans-serif;
+}
+#header {
+  background: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  flex-wrap: wrap;
+}
+#logo {
+  background-position: center;
+  background-image: url('ttplogo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  max-width: 320px;
+  height: 20vh;
+  max-height: 25vh;
+  margin: 0;
+}
+#title {
+  font-size: 2rem;
+}

@@ -13,13 +13,13 @@ function save_data() {
   localStorage.setItem('travelInfo', JSON.stringify(travelInfo));
 }
 
-let map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8
-  });
-}
+// let map;
+// function initMap() {
+//   map = new google.maps.Map(document.getElementById('map'), {
+//     center: { lat: -34.397, lng: 150.644 },
+//     zoom: 8
+//   });
+// }
 
 // api key xmnsRKbacpmsh6ZB83cvLNMQc4LTp1Znb3fjsngAa5M9Bt400S
 console.log('connected to eventful.js');
@@ -40,30 +40,30 @@ const eventfulUrl = `${corsApiUrl}${eventfulAPI}?app_key=${apiKey}&keywords=${
 
 console.log(eventfulUrl);
 
-const eventResponse = fetch(eventfulUrl);
-eventResponse
-  .then(res => res.json())
-  .then(res => {
-    console.log(res.events);
-    const responseArray = Array.from(res.events.event, event => ({
-      title: event.title,
-      description: event.description,
-      lat: event.latitude,
-      lng: event.longitude
-    }));
-    console.table(responseArray);
-    const markup = `
-    ${responseArray
-      .map(
-        event => `
-        <div class="event">
-          <p>${event.title}</p>
-          <p>${event.descripiton}</p>
-        </div>`
-      )
-      .join('')}
-    `;
-    const resultDiv = document.getElementById('results');
-    resultDiv.innerHTML = markup;
-  })
-  .catch(err => console.error(err));
+// const eventResponse = fetch(eventfulUrl);
+// eventResponse
+//   .then(res => res.json())
+//   .then(res => {
+//     console.log(res.events);
+//     const responseArray = Array.from(res.events.event, event => ({
+//       title: event.title,
+//       description: event.description,
+//       lat: event.latitude,
+//       lng: event.longitude
+//     }));
+//     console.table(responseArray);
+//     const markup = `
+//     ${responseArray
+//       .map(
+//         event => `
+//         <div class="event">
+//           <p>${event.title}</p>
+//           <p>${event.descripiton}</p>
+//         </div>`
+//       )
+//       .join('')}
+//     `;
+//     const resultDiv = document.getElementById('results');
+//     resultDiv.innerHTML = markup;
+//   })
+//   .catch(err => console.error(err));

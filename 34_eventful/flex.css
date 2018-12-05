@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  background: lightcoral;
+  height: 100%;
+  width: 100%;
+  font-size: 1em;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
+    Verdana, sans-serif;
+}
+header > img {
+  /* width: 450px; */
+  max-width: 100%;
+  max-height: 9vw;
+}
+
+#map {
+  height: 50vh;
+}
+/* #map label {
+  width: auto;
+  display: inline;
+}
+#map img {
+  max-height: none;
+  max-width: none;
+} */
