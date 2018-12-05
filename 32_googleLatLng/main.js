@@ -1,6 +1,7 @@
 const latInput = document.querySelector('#latInput');
 const lngInput = document.querySelector('#lngInput');
 function initialize() {
+  console.log('initialized');
   const address = document.querySelector('#address');
   const dropdown = new google.maps.places.Autocomplete(address);
 
@@ -14,4 +15,3 @@ function initialize() {
     if (e.keyCode === 13) e.preventDefault();
   });
 }
-window.onload.initialize();
