@@ -32,40 +32,24 @@
       </form>
     <!-- </div> -->
 
-  <div id="results">  
+  <div id="results">
     <div id="map">
     </div>
-    <div id="result-list">
-      <ul>results
-      <li>Awesome Concert</li>
-      <li>Awesome Concert</li>
-      <li>Awesome Concert</li>
-      <li>Awesome Concert</li>
-      <li>Awesome Concert</li>
-      <li>Awesome Concert</li>
-      <li>Awesome Concert</li>
-      <li>Awesome Concert</li>
-      <li>Awesome Concert</li>
+    <div >
+      <ul id="results-list">
+
       </ul>
     </div>
   </div>
 
 
 <footer id="footer">&copy;Aaron Moskowitz</footer>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD_2ijFPoTpfsqiNe1kSJrZvvApSKyAHw&callback=initMap"
-      async
-      defer
-    ></script>
-    <script>
-    let map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8
-    });
-    }
-</script>
-    <script src="main.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIdo4B_oFM3lR9Qs2Zx4MJoxBrSdvuMJc&libraries=places&callback=initialize"
+    async
+    defer
+  ></script>
+  <script src="autocomplete.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
