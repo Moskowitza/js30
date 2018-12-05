@@ -15,36 +15,43 @@
           Welcome to Trips To Plan
       </span>
     </header>
-    <main id="map">map</main>
-    <aside>
-    <div id="form">
-     <form onsubmit="save_data()">
-        <div>
-          <label for="city">City:</label>
-          <input type="text" id="city" />
-        </div>
-        <div>
-          <label for="date">Start Date:</label>
-          <input type="date" id="date" />
-        </div>
-        <div>
-          <label for="endDate">End Date:</label>
-          <input type="date" id="endDate" />
-        </div>
-        <div>
-          <label for="interest">Interest:</label>
-          <input type="text" id="interest" ></input>
-        </div>
-        <input type="submit" value="submit">    
-      </form>
-    </div>
-    <div id="results">
-      <h2>results</h2>
-    </div>
-    </aside>
-  
-  <footer id="footer">&copy;Aaron Moskowitz</footer>
 
+
+  <!-- <div class="flex-form"> -->
+    <form class="flex-form" onsubmit="save_data()">
+        <!-- <label for="city">City:</label> -->
+        <input type="text" id="city" class="form-input" placeholder="Where do you want to go?" />
+        
+        <label for="date">from:</label>
+        <input type="date" id="date"  />
+        <label for="endDate">to:</label>
+        <input type="date" id="endDate" />
+    
+        <input type="text" id="interest" class="form-input" placeholder="What do you like?" ></input>
+        <input type="submit" value="submit" >      
+      </form>
+    <!-- </div> -->
+
+  <div id="results">  
+    <div id="map">
+    </div>
+    <div id="result-list">
+      <ul>results
+      <li>Awesome Concert</li>
+      <li>Awesome Concert</li>
+      <li>Awesome Concert</li>
+      <li>Awesome Concert</li>
+      <li>Awesome Concert</li>
+      <li>Awesome Concert</li>
+      <li>Awesome Concert</li>
+      <li>Awesome Concert</li>
+      <li>Awesome Concert</li>
+      </ul>
+    </div>
+  </div>
+
+
+<footer id="footer">&copy;Aaron Moskowitz</footer>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD_2ijFPoTpfsqiNe1kSJrZvvApSKyAHw&callback=initMap"
       async
