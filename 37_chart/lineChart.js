@@ -7,7 +7,7 @@ const lineChart = new Chart(ourChart, {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
       {
-        label: 'my first dataset',
+        label: 'First Dataset',
         fill: false,
         lineTension: 0.1,
         backgroundColor: 'rgba(75,192,192,0.4)',
@@ -29,7 +29,7 @@ const lineChart = new Chart(ourChart, {
       {
         label: 'Second Dataset',
         fill: true,
-        lineTension: 0,
+        lineTension: 0.2,
         backgroundColor: 'rgba(75,75,192,0.4)',
         borderCapStyle: 'butt',
         borderDash: [],
