@@ -9,15 +9,18 @@
   </head>
   <body>
     <script>
-      function Person(name, profession) {
-        this.name = name;
-        this.profession = profession;
-      }
-      Person.prototype.sayName = function() {
-        document.write('this is ' + this.name);
+      var newPerson = function(personName) {
+        return {
+          name: personName,
+          sayName: function() {
+            document.write("i'm ", this.name);
+          }
+        };
       };
-      var Aaron = new Person('aaron', 'cat');
+      var Aaron = newPerson('Aaron');
+      var blue = newPerson('blue');
       Aaron.sayName();
+      blue.sayName();
     </script>
   </body>
 </html>
